@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="Curo.ClientsManage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Curo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:extendedListView="using:ExtendedListView"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <ListView x:Name="listView" ItemsSource="{Binding}" SelectionMode="Single" SelectionChanged="listView_SelectionChanged" Tapped="listView_Tapped" Background="#FFFBFBFB">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal"  >
+            <Border Height="100" Width="100" Margin="10,10,0,10">
+
+                        <Ellipse Width="100"
+         Height="100">
+                            <Ellipse.Fill>
+                                <ImageBrush>
+                                    <ImageBrush.ImageSource>
+                                        <BitmapImage UriSource="Assets/termin.jpg" />
+                                    </ImageBrush.ImageSource>
+                                </ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        
+            </Border>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,10,0,0">
+                      
+                <TextBlock Text="{Binding Title}" 
+                           Margin="10,2,0,0" Width="200" Height="30" 
+                           TextTrimming="WordEllipsis" HorizontalAlignment="Left" 
+                           FontSize="{ThemeResource ContentControlFontSize}" Foreground ="Black"   Opacity="0.49"/>
+                        <TextBlock Text="{Binding Description}" 
+                           Margin="10,0,0,0"  Height="50" Width="300"
+                           TextTrimming="WordEllipsis" TextWrapping="WrapWholeWords" Foreground ="Black"  HorizontalAlignment="Left"/>
+
+                    </StackPanel>
+                </StackPanel>
+              
+            </DataTemplate>
+            </ListView.ItemTemplate>
+    </ListView>
+
+    <Page.BottomAppBar >
+        <CommandBar IsSticky="True" x:Name="appBar" Background="#0082FF">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="btnChat" Icon="Add"  IsCompact="False" Label="Add" Click="btnChat_Click"/>
+                <AppBarButton Icon="Refresh" IsCompact="False" Label="Refresh"/>
+                <AppBarButton Icon="Find" IsCompact="False" Label="Search"/>
+                
+            </CommandBar.PrimaryCommands>
+            
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
